@@ -81,17 +81,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     serieWikiUrl.innerHTML = `<a href="${data.wiki_url}" target="_blank">Wikipedia Link</a>`;
                     document.getElementById('serieContainer').style.display = 'block';
 
-                } else if (dataType === 'stories' && data.id) {
+                } else if (dataType === 'shortStories' && data.id) {
                     // Display story details
-                    const storyTitle = document.getElementById('storyTitle');
-                    const storyAuthor = document.getElementById('storyAuthor');
-                    const storyYear = document.getElementById('storyYear');
-                    const storyWikiUrl = document.getElementById('storyWikiUrl');
+                    const shortstoryTitle = document.getElementById('shortstoryTitle');
+                    const shortstoryAuthor = document.getElementById('shortstoryAuthor');
+                    const shortstoryYear = document.getElementById('shortstoryYear');
+                    const shortstoryWikiUrl = document.getElementById('shortstoryWikiUrl');
 
-                    storyTitle.textContent = `Title: ${data.title}`;
-                    storyAuthor.textContent = `Author(s): ${Array.isArray(data.author) ? data.author.join(', ') : data.author}`;
-                    storyYear.textContent = `Year: ${data.year}`;
-                    storyWikiUrl.innerHTML = `<a href="${data.wiki_url}" target="_blank">Wikipedia Link</a>`;
+                    shortstoryTitle.textContent = `Title: ${data.title}`;
+                    shortstoryAuthor.textContent = `Author(s): ${Array.isArray(data.author) ? data.author.join(', ') : data.author}`;
+                    shortstoryYear.textContent = `Year: ${data.year}`;
+                    shortstoryWikiUrl.innerHTML = `<a href="${data.wiki_url}" target="_blank">Wikipedia Link</a>`;
                     document.getElementById('storyContainer').style.display = 'block';
 
                 } else {
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function fetchDataType() {
         const selectedType = document.getElementById('filterType').value;
 
+
         if (!selectedType || selectedType === 'All Types') {
             // Fetch all data if no specific type is selected
             fetchAllData();
@@ -136,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to fetch all data for each type
     function fetchAllData() {
-        const allDataTypes = ['quotes', 'books', 'movies', 'comics', 'series', 'stories'];
+        const allDataTypes = ['quotes', 'books', 'movies', 'comics', 'series', 'shortStories'];
 
         allDataTypes.forEach(dataType => {
             for (let i = 1; i <= 20; i++) {
@@ -154,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to display data based on type
     function displayData(data, dataType) {
+
         console.log(`Received data for ${dataType}:`, data);
         const container = document.getElementById('allDataContainer');
         const formattedData = Array.isArray(data) ? data[0] : data;
@@ -161,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Check if the data has a unique identifier (e.g., id property)
         const dataText = `${dataType}-${formattedData.title || formattedData.quote}-${formattedData.year}`;
 
+        
         // Check if the data with the same identifier has been displayed before
         if (displayedData.has(dataText)) {
             console.log(`Data with text ${dataText} already displayed. Skipping.`);
@@ -183,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dataInfo.textContent = `Comic: ${formattedData.title}, Year: ${formattedData.year}`;
         } else if (dataType === 'series' && formattedData.title) {
             dataInfo.textContent = `Serie: ${formattedData.title}, Year: ${formattedData.year}`;
-        } else if (dataType === 'stories' && formattedData.title) {
+        } else if (dataType === 'shortStories' && formattedData.title) {
             dataInfo.textContent = `Short Story: ${formattedData.title}, Year: ${formattedData.year}`;
         } else {
             dataInfo.textContent = `Unknown Data Type: ${JSON.stringify(formattedData)}`;

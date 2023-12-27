@@ -69,6 +69,7 @@ input {
     position: relative;
     width: 60vw;
     top: 65vh;
+    padding-bottom: 10px;
     left: 18vw;
     opacity: 50%;
 }

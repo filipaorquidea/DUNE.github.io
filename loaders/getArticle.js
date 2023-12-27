@@ -54,15 +54,15 @@ function getRandom(type, number) {
                 out[i] = serie;
             }
             return out;
-        case 'stories':
-            var limit = number > stories.length ? stories.length : number;
+        case 'shortStories':
+            var limit = number > shortStories.length ? shortStories.length : number;
             var out = new Array(limit);
-            var story;
+            var shortstory;
             for (var i = 0; i < limit; i++) {
                 do {
-                    story = stories[Math.floor(Math.random() * stories.length)];
-                } while (out.indexOf(story) > -1);
-                out[i] = story;
+                    shortstory = shortStories[Math.floor(Math.random() * shortStories.length)];
+                } while (out.indexOf(shortstory) > -1);
+                out[i] = shortstory;
             }
             return out;
         case 'comics':
@@ -126,15 +126,15 @@ function getArticle(type, idOrName, additionalParameter) {
             return series[idOrName - 1]
         }
     }
-    else if (type == 'stories') {
+    else if (type == 'shortStories') {
         if (idOrName <= 0) {
-            return stories[0]
+            return shortStories[0]
         }
-        else if (idOrName > stories.length) {
-            return stories[stories.length - 1]
+        else if (idOrName > shortStories.length) {
+            return shortStories[shortStories.length - 1]
         }
         else {
-            return stories[idOrName - 1]
+            return shortStories[idOrName - 1]
         }
     }
     else if (type == 'comics') {
@@ -159,7 +159,7 @@ function getAll() {
         books: books,
         movies: movies,
         series: series,
-        stories: stories,
+        shortStories: shortStories,
         comics: comics,
     };
     return allData;
