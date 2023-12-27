@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNE</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+    <h1>Welcome to Dune</h1>
+
+    <form id="fetchDataForm">
+        <label for="dataType">Single:</label>
+        <select id="dataType" name="dataType">
+            <option value="quotes">Quote</option>
+            <option value="books">Book</option>
+            <option value="movies">Movie</option>
+            <option value="comics">Comic</option>
+            <option value="series">Serie</option>
+            <option value="stories">ShortStory</option>
+            <!-- Add more options for other data types -->
+        </select>
+
+        <input placeholder="Enter ID" type="number" id="dataId" name="dataId">
+
+        <button type="submit" class="data">Submit</button>
+
+    </form>
+
+    <form id="fetchDataType">
+        <label for="filterType">Show All:</label>
+        <select id="filterType" onchange="filterByType()">
+            <option value="">Types</option>
+            <option value="quotes">Quotes</option>
+            <option value="books">Books</option>
+            <option value="movies">Movies</option>
+            <option value="comics">Comics</option>
+            <option value="series">Series</option>
+            <option value="stories">Stories</option>
+        </select>
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <div id="allDataContainer"></div>
+
+    <div id="Container">
+
+        <div id="quoteContainer">
+            <p id="quoteText"></p>
+        </div>
+
+        <div id="bookContainer">
+            <p id="bookTitle"></p>
+            <p id="bookAuthor"></p>
+            <p id="bookYear"></p>
+            <p id="bookWikiUrl"></p>
+        </div>
+
+        <div id="movieContainer">
+            <p id="movieTitle"></p>
+            <p id="movieDirector"></p>
+            <p id="movieYear"></p>
+            <p id="movieWikiUrl"></p>
+        </div>
+
+        <div id="comicContainer">
+            <p id="comicTitle"></p>
+            <p id="comicAuthor"></p>
+            <p id="comicYear"></p>
+            <p id="comicIllustrator"></p>
+            <p id="comicWikiUrl"></p>
+        </div>
+
+        <div id="serieContainer">
+            <p id="serieTitle"></p>
+            <p id="serieDirector"></p>
+            <p id="serieYear"></p>
+            <p id="serieWikiUrl"></p>
+        </div>
+
+        <div id="storyContainer">
+            <p id="storyTitle"></p>
+            <p id="storyAuthor"></p>
+            <p id="storyYear"></p>
+            <p id="storyWikiUrl"></p>
+        </div>
+    </div>
+
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
