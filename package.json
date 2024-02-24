@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ywalia01/dune-api/issues"
   },
-  "homepage": "https://github.com/ywalia01/dune-api",
+  "homepage": "https://filipaorquidea.github.io/EX2/",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
